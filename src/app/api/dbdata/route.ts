@@ -28,7 +28,7 @@ async function getData(): Promise<string> {
     return 'Connection has been established successfully.';
   }
   catch(err) {
-    return `Unable to connect to the database: ${err}`;
+    return `Unable to connect to the database: ${(err as Error).message}`;
   };
 }
 
