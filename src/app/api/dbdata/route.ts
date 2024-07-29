@@ -13,16 +13,15 @@ async function getData(): Promise<string> {
     dialect: "mssql",
     dialectModule: tedious,
     dialectOptions: {
-        options: {
-            encrypt: true,
-            rquestTimeout: 30000,
-            connectionTimeout: 30000,
-        },
+      options: {
+        encrypt: true,
+        requestTimeout: 30000,
+        connectTimeout: 30000,
+      },
       authentication: {
         type: "azure-active-directory-default",
         options: {
           clientId: 'c083c189-2c9b-4ff0-9040-ee1961ef2c0e', // user-assigned client id
-          encrypt: true,
         },
       },
     },
