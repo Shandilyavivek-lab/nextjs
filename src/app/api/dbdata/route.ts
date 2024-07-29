@@ -12,6 +12,7 @@ async function getData(): Promise<string> {
     port: 1433,
     dialect: "mssql",
     dialectModule: tedious,
+    logging: console.log,
     dialectOptions: {
       options: {
         encrypt: true,
