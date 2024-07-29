@@ -20,6 +20,8 @@ async function getData(): Promise<string> {
           encrypt: true,
         },
       },
+      rquestTimeout: 30000,
+      connectionTimeout: 30000,
     },
   };
   const sequelize = new Sequelize(options)
