@@ -32,6 +32,11 @@ async function getData(): Promise<string> {
     return 'Connection has been established successfully.';
   }
   catch(err) {
+    console.error('Unable to connect to the database:', err);
+    if (err instanceof Error) {
+      console.error('Error message:', err.message);
+      console.error('Error stack:', err.stack);
+    }
     return `Unable to connect to the database: ${(err as Error).message}`;
   };
 }
