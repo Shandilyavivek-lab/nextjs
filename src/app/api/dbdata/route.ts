@@ -11,20 +11,19 @@ async function getData(): Promise<string> {
     host: 'testsqlbdserver.database.windows.net',
     port: 1433,
     dialect: "mssql",
-    dialectModule: tedious,
     logging: console.log,
+    dialectModule: tedious,
     dialectOptions: {
-      options: {
-        encrypt: true,
-        requestTimeout: 30000,
-        connectTimeout: 30000,
-      },
-      authentication: {
-        type: "azure-active-directory-msi-app-service",
-        options: {
-          clientId: 'c083c189-2c9b-4ff0-9040-ee1961ef2c0e', // user-assigned client id
+        authentication: {
+            type: "azure-active-directory-msi-app-service",
+            options: {
+            clientId: 'c083c189-2c9b-4ff0-9040-ee1961ef2c0e', // user-assigned client id
+            },
         },
-      },
+        options: {
+            encrypt: true,
+            connectTimeout: 30000,
+        }
     },
   };
   const sequelize = new Sequelize(options)
@@ -33,11 +32,6 @@ async function getData(): Promise<string> {
     return 'Connection has been established successfully.';
   }
   catch(err) {
-    console.error('Unable to connect to the database:', err);
-    if (err instanceof Error) {
-      console.error('Error message:', err.message);
-      console.error('Error stack:', err.stack);
-    }
     return `Unable to connect to the database: ${(err as Error).message}`;
   };
 }
