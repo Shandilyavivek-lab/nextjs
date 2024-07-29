@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+ukimport { NextResponse } from 'next/server';
 import { Sequelize, Options } from 'sequelize';
 import * as tedious from 'tedious';
 
@@ -15,7 +15,7 @@ async function getData(): Promise<string> {
     dialectModule: tedious,
     dialectOptions: {
         authentication: {
-            type: "azure-active-directory-msi-app-service",
+            type: "azure-active-directory-default",
             options: {
             clientId: 'c083c189-2c9b-4ff0-9040-ee1961ef2c0e', // user-assigned client id
             },
