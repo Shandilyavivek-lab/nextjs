@@ -1,4 +1,4 @@
-ukimport { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { Sequelize, Options } from 'sequelize';
 import * as tedious from 'tedious';
 
