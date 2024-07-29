@@ -20,7 +20,7 @@ async function getData(): Promise<string> {
         connectTimeout: 30000,
       },
       authentication: {
-        type: "azure-active-directory-default",
+        type: "azure-active-directory-msi-app-service",
         options: {
           clientId: 'c083c189-2c9b-4ff0-9040-ee1961ef2c0e', // user-assigned client id
         },
