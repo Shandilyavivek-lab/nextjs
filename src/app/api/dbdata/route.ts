@@ -13,6 +13,11 @@ async function getData(): Promise<string> {
     dialect: "mssql",
     dialectModule: tedious,
     dialectOptions: {
+        options: {
+            encrypt: true,
+            rquestTimeout: 30000,
+            connectionTimeout: 30000,
+        },
       authentication: {
         type: "azure-active-directory-default",
         options: {
@@ -20,8 +25,6 @@ async function getData(): Promise<string> {
           encrypt: true,
         },
       },
-      rquestTimeout: 30000,
-      connectionTimeout: 30000,
     },
   };
   const sequelize = new Sequelize(options)
